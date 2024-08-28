@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>商品詳細</title>
+    <style>
+        body {
+             margin: 0;
+             padding: 0;
+             display: flex;
+             flex-direction: column;
+             align-items: center;
+         }
+
+         .container {
+             display: flex;
+             justify-content: center;
+             align-items: flex-start;
+         }
+         .image {
+             flex: 1;
+             text-align: center;
+             margin-right: 20px;
+         }
+         .details {
+             flex: 2;
+         }
+         .details h1 {
+             margin: 0;
+             font-size: 24px;
+         }
+         .details p {
+             margin: 10px 0;
+         }
+         .details .form-group {
+             margin: 10px 0;
+         }
+         .details .form-group label {
+             display: block;
+             margin-bottom: 5px;
+         }
+         .details .form-group select,
+         .details .form-group input {
+             width: 50px;
+             padding: 8px;
+             font-size: 16px;
+         }
+         .details .form-group button {
+             padding: 10px 20px;
+             font-size: 16px;
+             background-color: #4CAF50;
+             color: white;
+             border: none;
+             cursor: pointer;
+         }
+         .details .form-group button:hover {
+             background-color: #45a049;
+         }
+
+        .description {
+          text-align: center;
+          margin-top: 20px;
+    }
+
+    </style>
+</head>
+<body>
+<a href="/home">ホームへ</a>
+<h1>商品詳細</h1>
+<div class="container">
+    <!-- 商品画像 -->
+    <div class="image">
+        <img th:src="@{/img/yukata.jpg}" alt="商品画像" style="max-width: 300px; max-height: 300px;">
+    </div>
+    <!-- 商品詳細 -->
+    <div class="details">
+        <h1 th:text="${product.productName}">商品名</h1>
+        <p><span th:text="${product.productPrice}"></span> 円(税込）</p>
+        <form action="/cart/add" method="post">
+            <div class="form-group">
+                <label for="size">サイズ</label>
+                <select id="size" name="size">
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="quantity">個数</label>
+                <input type="number" id="quantity" name="quantity" min="1" value="1">
+            </div>
+            <input type="hidden" name="productId" th:value="${product.productId}">
+            <div class="form-group">
+                <button type="submit">カートに入れる</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="description">
+    <h2>DETAIL</h2>
+    <span th:text="${product.productDescription}"></span></p>
+</div>
+</body>
+</html>

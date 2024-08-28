@@ -5,12 +5,39 @@
     <title>ホーム画面</title>
     <style>
         body {
-            text-align: center; /* テキストを横方向に中央揃え */
+            text-align: center;
+        }
+
+        .information {
+            margin-top: 60px;
+            margin-bottom: 60px
+            }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            margin-bottom: 20px;
+           }
+
+        .btn{
+            color: white;
+            background-color: #cca3db;
+            padding: 5px 10px;
+            text-decoration: none; /* アンダーラインを消す */
+            font-weight: 800;
+            border-radius: 10px;
         }
     </style>
 </head>
 <body>
-<h1>ホーム画面</h1>
-<a href="/product/list">アイテムを探す</a>
+<h1>MOMO SHOP 仙台</h1>
+<div class="information">
+    <h3>---INFORMATION---</h3>
+    <p>MOMO SHOP 仙台は仙台市太白区でペットグッズの販売を行っております。</p>
+    <p>毎日が楽しくなるアイテムが豊富に揃えてあります。オンラインショップもぜひご利用ください。</p>
+</div>
+<a href="/product/list" class="btn">アイテムを探す</a><br>
+<a href="">会社案内</a><br>
+<a href="">お問い合わせ</a>
 </body>
 </html>

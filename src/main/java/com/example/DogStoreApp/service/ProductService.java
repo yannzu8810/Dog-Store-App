@@ -15,7 +15,19 @@ public class ProductService {
     @Autowired
     ProductRepository productRepository;
 
+    /**
+     * getProductListメソッド
+     * 全ての商品情報をリストで取ってくる
+     */
     public List<ProductEntity> getProductList() {
         return productRepository.findAll();
+    }
+
+    /**
+     * getProductFindByIdメソッド
+     * 指定されたidの商品情報を取ってくる
+     */
+    public ProductEntity getProductFindById(Integer id) {
+        return productRepository.findById(id).orElse(null);
     }
 }
